@@ -1,4 +1,4 @@
-= auto-tagging-action
+= auto-versioning
 
 This project is a composite GitHub Action that automatically performs tagging on every version change.
 The script ensures that an annotated tag is created for the current version determined by a given command.
@@ -24,9 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     name: An example job
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - id: tagging
-        uses: brettaufheber/auto-tagging-action@v1
+        uses: keyberry-io/auto-versioning@v1
         with:
           command: jq -r '.version' package.json
           snapshot-pattern: ^0\.  # major part is 0
